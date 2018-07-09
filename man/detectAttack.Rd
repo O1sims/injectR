@@ -4,26 +4,26 @@
 \alias{detectAttack}
 \title{Detect Attack}
 \usage{
-detectAttack(argument)
+detectAttack(payload)
 }
 \arguments{
-\item{argument}{A string containing a URL-decoded parameter, request body,
+\item{payload}{A string containing a URL-decoded parameter, request body,
 or header argument.}
 }
 \value{
-Returns a binary integer indicating whether the argument contained a
+Returns a binary integer indicating whether the payload contained a
  malicious element (`1`) or not (`0`).
 }
 \description{
-This function takes in an argument and analyses it for malicious strings. 
+This function takes in a payload and analyses it for malicious strings. 
  If malicious strings are found it will return an indicator and tokenized data (fingerprint).
 }
 \details{
-Detect SQLi or XSS in parameter or request body argument.
+Detect SQLi or XSS in parameter or request body payload.
  The process of detection and classification is as follows:
   \itemize{
-      \item{Send argument to be tested for SQL}
-      \item{Send argument to be tested for XSS}
+      \item{Send payload to be tested for SQL}
+      \item{Send payload to be tested for XSS}
       \item{If malicious activities have been detected then return with a `1`}
       \item{If no malicious activity has been detected then return with a `0`}
   }
