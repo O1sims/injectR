@@ -1,8 +1,7 @@
 
 testthat::test_that("Detect SQLi attack", {
-  sqliArgument <- "%' or 0=0#"
-  attackResults <- detectAttack(
-    argument = sqliArgument)
+  attackResults <- "%' or 0=0#" %>%
+    detectAttack()
   
   testthat::expect_equal(attackResults$isSQLi, 1)
   testthat::expect_equal(attackResults$isXSS, 0)
@@ -10,9 +9,8 @@ testthat::test_that("Detect SQLi attack", {
 
 
 testthat::test_that("Detect XSS attack", {
-  xssArgument <- "<script>alert('hello')</script>"
-  attackResults <- detectAttack(
-    argument = xssArgument)
+  attackResults <- "<script>alert('hello')</script>" %>%
+    detectAttack()
   
   testthat::expect_equal(attackResults$isSQLi, 0)
   testthat::expect_equal(attackResults$isXSS, 1)
@@ -20,9 +18,8 @@ testthat::test_that("Detect XSS attack", {
 
 
 testthat::test_that("Detect XSS attack", {
-  xssRequestURI <- 'http://mysite.com/pictures/search.php?query=<script src="http://malicious.com/evil.js"></script>'
-  attackResults <- detectAttack(
-    argument = xssRequestURI)
+  attackResults <- 'http://mysite.com/pictures/search.php?query=<script src="http://malicious.com/evil.js"></script>' %>%
+    detectAttack()
   
   testthat::expect_equal(attackResults$isSQLi, 0)
   testthat::expect_equal(attackResults$isXSS, 1)
