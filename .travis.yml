@@ -2,5 +2,5 @@ language: r
 cache: packages
 sudo: false
 warnings_are_errors: false
-script: 
-  - Rscript tests/testthat.R
+script:
+  - Rscript runTests.R

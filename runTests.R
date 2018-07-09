@@ -4,6 +4,5 @@ library(injectoR)
 
 
 testthat::test_dir(
-  path = "testthat",
+  path = "tests",
   reporter = "summary")
-
