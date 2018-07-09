@@ -1,0 +1,14 @@
+Package: injectoR
+Title: injectoR
+Version: 0.0.0.9000
+Authors@R: person("Owen", "Sims", email = "sims.owen@gmail.com", role = c("aut", "cre"))
+Description: Detects SQLi and XSS attacks in arbitrary strings.
+Depends: R (>= 3.4.1)
+License: BSD
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+  magrittr,
+  utils,
+  urltools
